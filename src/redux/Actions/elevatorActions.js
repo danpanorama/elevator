@@ -3,14 +3,14 @@ import {
     MSG
   } from '../contents/errContent'
 import axiosConfig from "../../config/AxiosConfig";
-import {  ADD_TO_CART } from '../contents/elevatorContent.js';
+import {  CALL_ELEVATOR,TEST } from '../contents/elevatorContent.js';
   
 
 
   export const callElevator = (data) => async (dispatch) => {
     try {
 
-        dispatch({type:ADD_TO_CART,data:data})
+        dispatch({type:CALL_ELEVATOR,data:data})
     
     } catch (e) {
         dispatch({
@@ -21,4 +21,15 @@ import {  ADD_TO_CART } from '../contents/elevatorContent.js';
   }
 
   
+  export const test = (data) => async (dispatch) => {
+    try {
 
+        dispatch({type:TEST,data:data})
+    
+    } catch (e) {
+        dispatch({
+            type: MSG,
+            data: {type:'bad',msg:e.message}
+          })
+    }
+  }
